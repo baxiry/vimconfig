@@ -1,6 +1,4 @@
-
-
-
+" hello this is a setting neovim file
 
 
 syntax on			" Turn on syntax highlighting
@@ -8,44 +6,48 @@ syntax on			" Turn on syntax highlighting
 filetype indent on      	" load filetype-specific indent files<Paste>
 
 " AUTOCLOSE TAGS
-inoremap <html<CR>   <!DOCTYPE html><CR></html><Esc>O<Tab>
-inoremap <script<CR>   <script><CR></script><Esc>O<Tab>
-inoremap <style<CR>   <style><CR></style><Esc>O<Tab>
-inoremap <head<CR>   <head><CR></head><Esc>O<Tab>
-inoremap <body<CR>   <body><CR></body><Esc>O<Tab>
-inoremap <head<CR>   <head><CR></head><Esc>O<Tab>
-inoremap <div<CR>   <div><CR></div><Esc>O<Tab>
-inoremap <xml<CR>   <xml><CR></xml><Esc>O<Tab>
+inoremap <ht   <!DOCTYPE html><CR></html><Esc>O<Tab>
+inoremap <sc   <script><CR></script><Esc>O<Tab>
+inoremap <st   <style><CR></style><Esc>O<Tab>
+inoremap <he   <head><CR></head><Esc>O<Tab>
+inoremap <bo   <body><CR></body><Esc>O<Tab>
+inoremap <di   <div><CR></div><Esc>O<Tab>
+inoremap <fo   <form action=""><CR></form><Esc>O<Tab>
 
-inoremap <h1        <h1></h1><Esc>hhhhi
+inoremap <ti        <title></title><Esc>hhhhhhhi
+inoremap <im        <img src=""/><Esc>
+inoremap <h1        <h1></h1><Esc>
 inoremap <h2        <h2></h2><Esc>hhhhi
 inoremap <h3        <h3></h3><Esc>hhhhi
 inoremap <h4        <h4></h4><Esc>hhhhi
 inoremap <ul        <ul></ul><Esc>hhhhi
 inoremap <li        <li></li><Esc>hhhhi
-inoremap <p        <p></p><Esc>hhhi
-inoremap <br        </br>
+inoremap <p         <p></p><Esc>hhhi
+inoremap <br        <br/>
+inoremap <hr        <hr/>
 
 "Auto-insert closing parenthesis/brace
 inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
 
-
+inoremap main  package main<CR>import (<CR>)<Esc>O"fmt"<Esc>jo<CR><CR>func main() {<CR>}<Esc>O
 inoremap " ""<Left>
 inoremap `  ``<Left>
 "inoremap '  ''<Left>
 
-inoremap () ()
-inoremap {} {}
-inoremap [] []
+imap () ()
+imap {} {}
+imap [] []
 
 
-inoremap {<CR> {<CR>}<Esc>O
-inoremap (<CR> (<CR>)<Esc>O
+imap {<CR> {<CR>}<Esc>O
+imap (<CR> (<CR>)<Esc>O
 
 
+" SETTING
 
+set noswapfile              " no swap when changing file
 
 
 " UI
@@ -112,6 +114,10 @@ nnoremap <C-l> <C-w>l
 
 "colorscheme mycolor
 "colorscheme codedark
+
+
+
+
 
 
 
