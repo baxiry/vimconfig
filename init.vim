@@ -6,7 +6,8 @@ syntax on			" Turn on syntax highlighting
 filetype indent on      	" load filetype-specific indent files<Paste>
 
 " AUTOCLOSE TAGS
-inoremap <ht   <!DOCTYPE html><CR></html><Esc>O<Tab>
+inoremap <ht   <!DOCTYPE html><CR><html><CR></html><Esc>O
+inoremap <ph   <?php<CR>?><Esc>O
 inoremap <sc   <script><CR></script><Esc>O<Tab>
 inoremap <st   <style><CR></style><Esc>O<Tab>
 inoremap <he   <head><CR></head><Esc>O<Tab>
