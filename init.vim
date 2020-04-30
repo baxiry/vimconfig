@@ -12,8 +12,12 @@ inoremap if<CR> if err != nil {<CR>}<Esc>Ofmt.Println(err)<Esc>I
 
 " AUTOCLOSE TAGS
 inoremap <ht   <!DOCTYPE html><CR><html><CR></html><Esc>O
+<<<<<<< HEAD
 inoremap <he    <head><CR><meta charset="utf-8"><CR><title></title><CR></head><CR>
 "inoremap <?   <?php  ?><Esc>hhi
+=======
+inoremap <ph   <?php<CR>?><Esc>O
+>>>>>>> 1db738ee3deda544f6a3617cd016c5af74be0203
 inoremap <sc   <script><CR></script><Esc>O<Tab>
 inoremap <st   <style><CR></style><Esc>O<Tab>
 inoremap <he   <head><CR></head><Esc>O<Tab>
