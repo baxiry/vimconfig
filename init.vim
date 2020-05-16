@@ -6,54 +6,15 @@ filetype indent on      	" load filetype-specific indent files<Paste>
 
 
 " golang snipes
-inoremap if<CR> if err != nil {<CR>}<Esc>Ofmt.Println(err)<Esc>I
+inoremap if<CR> if err != nil {<CR>}<Esc>Ofmt.Errorf(err)<Esc>I
     
 
 
-" AUTOCLOSE TAGS
-inoremap <ht   <!DOCTYPE html><CR><html><CR></html><Esc>O
-<<<<<<< HEAD
-inoremap <he    <head><CR><meta charset="utf-8"><CR><title></title><CR></head><CR>
-"inoremap <?   <?php  ?><Esc>hhi
-=======
-inoremap <ph   <?php<CR>?><Esc>O
->>>>>>> 1db738ee3deda544f6a3617cd016c5af74be0203
-inoremap <sc   <script><CR></script><Esc>O<Tab>
-inoremap <st   <style><CR></style><Esc>O<Tab>
-inoremap <he   <head><CR></head><Esc>O<Tab>
-inoremap <bo   <body><CR></body><Esc>O<Tab>
-inoremap <di   <div><CR></div><Esc>O<Tab>
-inoremap <fo   <form action=""><CR></form><Esc>O<Tab>
-
-inoremap <ti    <title></title><Esc>7hi
-inoremap <la    <label ></label><Esc>7hi
-inoremap <in    <input  id="" value="" type="" name=""/><Esc>2hi
-inoremap <te    <textarea id="" name="text"></textarea><Esc>12hi
-inoremap <bu    <button onclick=""></button><Esc>8hi
-
-inoremap <pr    <pre id=""></pre>
-inoremap <im    <img src=""/><Esc>
-inoremap <h1    <h1></h1><Esc>4hi
-inoremap <h2    <h2></h2><Esc>4hi
-inoremap <h3    <h3></h3><Esc>4hi
-inoremap <h4    <h4></h4><Esc>4hi
-inoremap <ul    <ul></ul><Esc>4hi
-inoremap <li    <li></li><Esc>4hi
-inoremap <p     <p></p><Esc>3hi
-inoremap <a     <a href=""></a><Esc>5hi
-inoremap <br    <br/>
-inoremap <hr    <hr/>
-
-"Auto-insert closing parenthesis/brace
-"inoremap main  package main<CR>import (<CR>)<Esc>O"fmt"<Esc>jo<CR><CR>func main() {<CR>}<Esc>O
-"noremap " ""<Left>
-"noremap {<CR> {<CR>}<Esc>O
-
-
-" SETTING
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GENERAAL SETTING
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set noswapfile              " no swap when changing file
-
 
 " UI
 
@@ -116,11 +77,10 @@ nnoremap <C-l> <C-w>l
 "set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-
 "color PaperColor
 "colorscheme PaperColor
-colorscheme codedark
-
+"colorscheme codedark
+colorscheme afterglow
 
 """"""""""""""""""""""""""""
 "config vlang highlight "
@@ -146,11 +106,12 @@ let g:v_highlight_fields = 0
 
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''"
 "
-"   PLUGING VIM
+"   VIM PLUGINGS
 "
 "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''"
 
-
+"-- Emmet config --
+let g:user_emmet_leader_key=','
 
 " Plugins will be downloaded under the specified directory.
 
@@ -178,6 +139,9 @@ Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nv
 "Plug 'scrooloose/nerdTree'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" HTML plagin:
+Plug 'mattn/emmet-vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
