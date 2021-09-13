@@ -6,7 +6,7 @@ filetype indent on      	" load filetype-specific indent files<Paste>
 
 
 " golang snipes
-inoremap if<CR> if err != nil {<CR>}<Esc>Ofmt.Errorf(err)<Esc>I
+"inoremap if<CR> if err != nil {<CR>}<Esc>Ofmt.Errorf(err)<Esc>I
     
 
 
@@ -80,7 +80,7 @@ let g:solarized_termtrans=1
 "color PaperColor
 "colorscheme PaperColor
 "colorscheme codedark
-colorscheme afterglow
+"colorscheme afterglow
 
 """"""""""""""""""""""""""""
 "config vlang highlight "
