@@ -41,7 +41,7 @@ set shiftwidth=4			" 1 tab == 4 spaces
 
 set expandtab           	" tabs are spaces
 
-set noro                    " load init.vim as root ? // not read only
+"set noro                    " load init.vim as root ? // not read only
 
 
 
@@ -144,5 +144,4 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
 
