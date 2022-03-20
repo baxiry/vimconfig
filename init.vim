@@ -1,18 +1,6 @@
 syntax on			" Turn on syntax highlighting
 "filetype off 			" Helps force plugins to load correctly when it is turned back on below
 filetype indent on      	" load filetype-specific indent files<Paste>
-
-<<<<<<< HEAD
-
-" golang snipes
-"inoremap if<CR> if err != nil {<CR>}<Esc>Ofmt.Errorf(err)<Esc>I
-    
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-=======
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""":"""""""""""""""
->>>>>>> 594a3ca (recomment some commands)
 " GENERAAL SETTING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible     	 	" don't try to be vi compatible
@@ -38,20 +26,11 @@ set lazyredraw           	" redraw only when we need to.
 set tabstop=4       		" number of visual spaces per TAB
 set shiftwidth=4			" 1 tab == 4 spaces
 set expandtab           	" tabs are spaces
-<<<<<<< HEAD
-
-"set noro                    " load init.vim as root ? // not read only
-
-
-
-"  SEARSHING
-=======
-"set noro                    " load init.vim as root ? // not read only
 "  SEARSHING """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
->>>>>>> 594a3ca (recomment some commands)
-"  finding files
-"  searsh provides tab-completion for all file related task
-set path+=**  
+"set noro                    " load init.vim as root ? // not read only
+"  finding files """"""""""""""""""""""""""""""""""""""""""""""""""""
+
+set path+=**  "  searsh provides tab-completion for all file related task
 "set showmatch           	" highlight matching [{( )}]
 "set incsearch           	" search as characters are entered
 "set hlsearch            	" highlight matches
@@ -73,20 +52,6 @@ let g:solarized_termtrans=1
 colorscheme PaperColor
 "colorscheme codedark
 "colorscheme afterglow
-
-
-"   VIM PLUGINGS
-
-"-- Emmet config --
-let g:user_emmet_leader_key=','
-
-" Plugins will be downloaded under the specified directory.
-
-" inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-" inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-" nmap <C-n> :NERDTreeToggle<CR>
-
-
 
 filetype plugin on
 call plug#begin('~/.vim/plugged')
@@ -112,9 +77,6 @@ Plug 'scrooloose/nerdTree'
 Plug 'mattn/emmet-vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
-<<<<<<< HEAD
-=======
 
 """"""""" coc configuration """""""""
 
@@ -277,4 +239,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
->>>>>>> 594a3ca (recomment some commands)
