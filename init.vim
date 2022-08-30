@@ -75,13 +75,10 @@ call plug#end()
 " Color scheme (terminal)
 " set t_Co=256 " use this just in vim
 set background=dark
-"let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-"color PaperColor
+let g:solarized_termtrans=1 " or =256
 colorscheme PaperColor
-
+"color PaperColor
 "colorscheme onedarkpro
-
 "colorscheme codedark
 "colorscheme afterglow
 "colorscheme xcodedark
@@ -91,26 +88,19 @@ colorscheme PaperColor
 "colorscheme tokyonight
 
 
-
-
-
+"""""""""""""""""""""""""""" git signs 
 
 lua <<EOF
--- require('gitsigns').setup()
+  require('gitsigns').setup()
 EOF
 
 
-
-"""""""""""""" gitsigns
 " set statusline+=%{get(b:,'gitsigns_status','')}
 
 
 
 
-
-
-
-""""""""""""""""" coc setteng
+"""""""""""""""""""""""""""" coc setteng
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
