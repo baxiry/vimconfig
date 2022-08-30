@@ -1,119 +1,140 @@
-syntax on			" Turn on syntax highlighting
-"filetype off 			" Helps force plugins to load correctly when it is turned back on below
-filetype indent on      	" load filetype-specific indent files<Paste>
-" GENERAAL SETTING
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible     	 	" don't try to be vi compatible
-set noswapfile              " no swap when changing file
-"set ruler					" Show file stats
-" UI """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set termguicolors       	" using tree color in terminal
-set number		        	" show number of line
-set relativenumber	    	" show relative numbet for improve navigation between lines
-set showcmd             	" show command in bottom bar
-"set cursorline          	" highlight current line
-set nowrap
-set wildmenu            	" visual autocomplete for command menu      
-set lazyredraw           	" redraw only when we need to.             
-" FOLDING """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set foldenable          	" enable folding
-"set nofoldenable
-"set foldnestmax=10      	" 10 nested fold max
-"set foldmethod=manual
-"set foldmethod=syntax   	" fold based on indent level
-"nnoremap <space> za     	" space open/close foldes
-" EDITING """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tabstop=4       		" number of visual spaces per TAB
-set shiftwidth=4			" 1 tab == 4 spaces
-set expandtab           	" tabs are spaces
-"  SEARSHING """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set noro                    " load init.vim as root ? // not read only
-"  finding files """"""""""""""""""""""""""""""""""""""""""""""""""""
 
-set path+=**  "  searsh provides tab-completion for all file related task
-"set showmatch           	" highlight matching [{( )}]
-"set incsearch           	" search as characters are entered
-"set hlsearch            	" highlight matches
-" turn off search highlight
-"nnoremap <leader><space> :nohlsearch<cr>
+"""""""""""""""""""""""""""""""""""" global setteng
+set number
+set relativenumber
+set autoindent
+set tabstop=4
+set expandtab 
+set shiftwidth=4
+set nowrap              "no wrap lines
+set nobackup
+"set nowritebackup
 
-"Better window navigation
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+
+
+""""""""""""""""" plugins
+
+call plug#begin()
+
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Multiple Plug commands can be written in a single line using | separators
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+"Plug 'fatih/vim-go', { 'tag': '*' }
+
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+Plug 'lewis6991/gitsigns.nvim'
+
+
+"Plug 'arzg/vim-colors-xcode'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
+Plug 'NLKNguyen/papercolor-theme'
+
+
+
+" airline
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+
+
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
+"
+
 
 " Color scheme (terminal)
 " set t_Co=256 " use this just in vim
-"set background=dark
+set background=dark
 "let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 "color PaperColor
 colorscheme PaperColor
+
+"colorscheme onedarkpro
+
 "colorscheme codedark
 "colorscheme afterglow
-
-filetype plugin on
-call plug#begin('~/.vim/plugged')
-
-" coc.nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-""" Declare the list of plugins.
-" auto pairs
-Plug 'jiangmiao/auto-pairs'
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'NLKNguyen/papercolor-theme'
-Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-sensible'
-"Plug 'junegunn/seoul256.vim'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-
-Plug 'scrooloose/nerdTree'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" HTML plagin:
-Plug 'mattn/emmet-vim'
-" List ends here. Plugins become visible to Vim after this call.
-call plug#end()
-
-""""""""" coc configuration """""""""
+"colorscheme xcodedark
+"colorscheme xcodedarkhc
+"colorscheme xcodewwdc
+"colorscheme moonfly
+"colorscheme tokyonight
 
 
-set encoding=utf-8 " Set internal encoding of vim, not needed on neovim,
-" since coc.nvim using some unicode characters in the file autoload/float.vim
-set hidden " TextEdit might fail if hidden is not set.
-set nobackup " Some servers have issues with backup files, see #649.
-set nowritebackup
-set cmdheight=1 " Give more space for displaying messages.
 
 
-set updatetime=250 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+
+
+lua <<EOF
+-- require('gitsigns').setup()
+EOF
+
+
+
+"""""""""""""" gitsigns
+" set statusline+=%{get(b:,'gitsigns_status','')}
+
+
+
+
+
+
+
+""""""""""""""""" coc setteng
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-
-
-set shortmess+=c " Don't pass messages to |ins-completion-menu|.
+set updatetime=300
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -124,11 +145,6 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -142,15 +158,13 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -182,6 +196,9 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
@@ -209,7 +226,7 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -239,3 +256,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+
