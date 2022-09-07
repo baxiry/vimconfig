@@ -8,9 +8,29 @@ set expandtab
 set shiftwidth=4
 set nowrap              "no wrap lines
 set nobackup
+set scrolloff=6
 "set nowritebackup
 
 
+
+""""""""""""""""""""""' key map
+"""""""""""""""""""""" autoclose
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ` ``<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+
+inoremap "" ""
+inoremap '' ''
+inoremap `` ``
+inoremap () ()
+inoremap [] []
+inoremap {} {}
+
+inoremap {<CR> {<CR>}<ESC>O
+inoremap `<CR> `<CR>`<ESC>O
 
 """"""""""""""""" plugins
 
