@@ -8,9 +8,17 @@ set expandtab
 set shiftwidth=4
 set nowrap              "no wrap lines
 set nobackup
+set noswapfile
 set scrolloff=6
 "set nowritebackup
 
+
+
+""""""""""""""""""""""""""""  Lua config  """"""""""""""""""""""""""""
+
+lua <<EOF
+
+EOF
 
 
 """"""""""""""""""""""' key map
@@ -32,7 +40,15 @@ inoremap {} {}
 inoremap {<CR> {<CR>}<ESC>O
 inoremap `<CR> `<CR>`<ESC>O
 
-""""""""""""""""" plugins
+
+
+
+""""""""""""""""""""""""""""""  map explorer
+
+" nmap <space>e <Cmd>CocCommand explorer<CR>
+
+
+""""""""""""""""""""""""""""""""" plugins
 
 call plug#begin()
 
@@ -108,23 +124,16 @@ colorscheme PaperColor
 "colorscheme tokyonight
 
 
-"""""""""""""""""""""""""""" git signs 
-
-lua <<EOF
--- require('gitsigns').setup ()
-EOF
-
 
 " set statusline+=%{get(b:,'gitsigns_status','')}
 
 
-
-
 """""""""""""""""""""""""""" coc setteng
+
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=200
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -266,6 +275,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-
 
