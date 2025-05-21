@@ -1,7 +1,11 @@
 
+
+
+"highlight ErrorMsg guifg=#FFFF00 guibg=NONE
+
 """""""""""""""""""""""""""""""""""" global setteng
 set number
-set relativenumber
+"set relativenumber
 set autoindent
 set tabstop=4
 set expandtab 
@@ -12,27 +16,18 @@ set noswapfile
 set scrolloff=6
 "set nowritebackup
 
-
-
-""""""""""""""""""""""""""""  Lua config  """"""""""""""""""""""""""""
-
-lua <<EOF
-
-EOF
-
-
 """"""""""""""""""""""' key map
-"""""""""""""""""""""" autoclose
+" autoclose
 inoremap " ""<left>
 inoremap ' ''<left>
-inoremap ` ``<left>
+"inoremap ` ``<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
 
 inoremap "" ""
 inoremap '' ''
-inoremap `` ``
+"inoremap `` ``
 inoremap () ()
 inoremap [] []
 inoremap {} {}
@@ -41,17 +36,65 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap `<CR> `<CR>`<ESC>O
 
 
+" the prefix to use for leader commands
+let g:mapleader="<space>"
 
-
-""""""""""""""""""""""""""""""  map explorer
-
-" nmap <space>e <Cmd>CocCommand explorer<CR>
+" Use vim-plug to manage your plugins:
+" https://github.com/junegunn/vim-plug
 
 
 """"""""""""""""""""""""""""""""" plugins
 
+"call plug#begin('~/.vim/vendor')
+"call plug#end()
+
 call plug#begin()
 
+"plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-tslint', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'} " mru and stuff
+"Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'} " color highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+"Plug '~/my-prototype-plugin'
+
+"Plug 'lewis6991/gitsigns.nvim'
+
+" themes
+
+"Plug 'Mofiqul/vscode.nvim'
+"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+"Plug 'arzg/vim-colors-xcode', { 'as': 'xcode' }
+"Plug 'bluz71/vim-moonfly-colors'
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
+"Plug 'AlexvZyl/nordic.nvim', { 'branch': 'main' }
+
+" airline
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+
+
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+"
+"
+"
+"Plug 'nvim-tree/nvim-web-devicons' " optional
+"Plug 'nvim-tree/nvim-tree.lua'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
@@ -70,66 +113,39 @@ call plug#begin()
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 "Plug 'fatih/vim-go', { 'tag': '*' }
 
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
-Plug 'lewis6991/gitsigns.nvim'
-
-
-"Plug 'arzg/vim-colors-xcode'
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'olimorris/onedarkpro.nvim'   " Vim-Plug
-Plug 'NLKNguyen/papercolor-theme'
-
-
-
-" airline
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
-
-
-" Initialize plugin system
-" - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
 " You can revert the settings after the call like so:
-"   filetype indent off   " Disable file-type-specific indentation
-"   syntax off            " Disable syntax highlighting
+filetype indent on   " enable file-type-specific indentation
+"syntax off          " Disable syntax highlighting
 "
 
 
 " Color scheme (terminal)
-" set t_Co=256 " use this just in vim
 set background=dark
-let g:solarized_termtrans=1 " or =256
-colorscheme PaperColor
-"color PaperColor
-"colorscheme onedarkpro
-"colorscheme codedark
-"colorscheme afterglow
-"colorscheme xcodedark
-"colorscheme xcodedarkhc
-"colorscheme xcodewwdc
+
+"let g:solarized_termtrans=1 " or =256
+"highlight DiagnosticError guifg=#FFFF00 guibg=NONE
+"highlight DiagnosticSignError guifg=#FFFF00 guibg=NONE
+"highlight WarningMsg guifg=#FFFF00 guibg=NONE
+"highlight CustomMethod guifg=#87CEFA " 
+"highlight Function guifg=#87CEEB
+
+
+
+"colorscheme catppuccin
+"colorscheme nordic
+colorscheme onedarkpro
 "colorscheme moonfly
 "colorscheme tokyonight
 
-
+lua << EOF
+EOF
 
 " set statusline+=%{get(b:,'gitsigns_status','')}
 
 
-"""""""""""""""""""""""""""" coc setteng
-
+"""""""""""""""""""""""""""" coc setteng """""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -229,16 +245,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
@@ -276,3 +282,61 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" nmap <space>e <Cmd>CocCommand explorer<CR>
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"
+"======================= DockerFile ==========================
+" dockerfile.vim - Syntax highlighting for Dockerfiles
+" Maintainer:   Honza Pokorny <https://honza.ca>
+" Last Change:  2020 Feb 11
+" License:      BSD
+
+" https://docs.docker.com/engine/reference/builder/
+
+if exists("b:current_syntax")
+    finish
+endif
+
+syntax include @JSON syntax/json.vim
+unlet b:current_syntax
+
+syntax include @Shell syntax/sh.vim
+unlet b:current_syntax
+
+syntax case ignore
+syntax match dockerfileLinePrefix /\v^\s*(ONBUILD\s+)?\ze\S/ contains=dockerfileKeyword nextgroup=dockerfileInstruction skipwhite
+syntax region dockerfileFrom matchgroup=dockerfileKeyword start=/\v^\s*(FROM)\ze(\s|$)/ skip=/\v\\\_./ end=/\v((^|\s)AS(\s|$)|$)/ contains=dockerfileOption
+
+syntax keyword dockerfileKeyword contained ADD ARG CMD COPY ENTRYPOINT ENV EXPOSE HEALTHCHECK LABEL MAINTAINER ONBUILD RUN SHELL STOPSIGNAL USER VOLUME WORKDIR
+syntax match dockerfileOption contained /\v(^|\s)\zs--\S+/
+
+syntax match dockerfileInstruction contained /\v<(\S+)>(\s+--\S+)*/             contains=dockerfileKeyword,dockerfileOption skipwhite nextgroup=dockerfileValue
+syntax match dockerfileInstruction contained /\v<(ADD|COPY)>(\s+--\S+)*/        contains=dockerfileKeyword,dockerfileOption skipwhite nextgroup=dockerfileJSON
+syntax match dockerfileInstruction contained /\v<(HEALTHCHECK)>(\s+--\S+)*/     contains=dockerfileKeyword,dockerfileOption skipwhite nextgroup=dockerfileInstruction
+syntax match dockerfileInstruction contained /\v<(CMD|ENTRYPOINT|RUN)>/         contains=dockerfileKeyword skipwhite nextgroup=dockerfileShell
+syntax match dockerfileInstruction contained /\v<(CMD|ENTRYPOINT|RUN)>\ze\s+\[/ contains=dockerfileKeyword skipwhite nextgroup=dockerfileJSON
+syntax match dockerfileInstruction contained /\v<(SHELL|VOLUME)>/               contains=dockerfileKeyword skipwhite nextgroup=dockerfileJSON
+
+syntax region dockerfileString contained start=/\v"/ skip=/\v\\./ end=/\v"/
+syntax region dockerfileJSON   contained keepend start=/\v\[/ skip=/\v\\\_./ end=/\v$/ contains=@JSON
+syntax region dockerfileShell  contained keepend start=/\v/ skip=/\v\\\_./ end=/\v$/ contains=@Shell
+syntax region dockerfileValue  contained keepend start=/\v/ skip=/\v\\\_./ end=/\v$/ contains=dockerfileString
+
+syntax region dockerfileComment start=/\v^\s*#/ end=/\v$/
+set commentstring=#\ %s
+
+hi def link dockerfileString String
+hi def link dockerfileKeyword Keyword
+hi def link dockerfileComment Comment
+hi def link dockerfileOption Special
+
+let b:current_syntax = "Dockerfile"
